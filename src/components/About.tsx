@@ -15,7 +15,7 @@ const About: React.FC = () => {
           <div className="md:w-2/3">
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
               I am a passionate Data Science student with a strong foundation in programming and analytical skills. 
-              Currently pursuing B-Tech with an impressive CGPA of 8.27, I am eager to apply my theoretical knowledge in practical scenarios.
+              Currently pursuing B-Tech with an impressive CGPA of 8.64, I am eager to apply my theoretical knowledge in practical scenarios.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
               My journey in technology has equipped me with skills in Python, Java, and C programming, 
@@ -61,7 +61,7 @@ const About: React.FC = () => {
                         style={{ 
                           width: language.level === 'Native' ? '100%' : 
                                  language.level === 'Fluent' ? '85%' : 
-                                 language.level === 'Proficient' ? '75%' : '50%' 
+                                 language.level === 'Proficient' ? '100' :  
                         }}
                       ></div>
                     </div>
