@@ -2,20 +2,6 @@ import React from 'react';
 import { languages } from '../data/data';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
-// Helper function to map language level to width
-const getWidthByLevel = (level: string): string => {
-  switch (level) {
-    case 'Native':
-      return '100%';
-    case 'Fluent':
-      return '98%';
-    case 'Proficient':
-      return '95%';
-    default:
-      return '60%';
-  }
-};
-
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
@@ -63,20 +49,30 @@ const About: React.FC = () => {
                 Languages I Speak
               </h3>
               <div className="space-y-4">
-                {languages.map((language, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="flex justify-between mb-1">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{language.name}</span>
-                      <span className="text-blue-600 dark:text-blue-400">{language.level}</span>
+                {languages.map((language, index) => {
+                  // Determine progress bar width based on level
+                  let width = '0%';
+                  if (language.level === 'Native') width = '100%';
+                  else if (language.level === 'Fluent') width = '98%';
+                  else if (language.level === 'Proficient') width = '95%';
+                  else if (language.level === 'Intermediate') width = '50%';
+                  else if (language.level === 'Beginner') width = '30%';
+
+                  return (
+                    <div key={index} className="mb-4">
+                      <div className="flex justify-between mb-1">
+                        <span className="text-gray-700 dark:text-gray-300 font-medium">{language.name}</span>
+                        <span className="text-blue-600 dark:text-blue-400">{language.level}</span>
+                      </div>
+                      <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                          style={{ width }}
+                        ></div>
+                      </div>
                     </div>
-                    <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                        style={{ width: getWidthByLevel(language.level) }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -87,3 +83,4 @@ const About: React.FC = () => {
 };
 
 export default About;
+
