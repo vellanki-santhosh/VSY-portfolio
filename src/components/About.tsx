@@ -2,6 +2,20 @@ import React from 'react';
 import { languages } from '../data/data';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
+// Helper function to map language level to width
+const getWidthByLevel = (level: string): string => {
+  switch (level) {
+    case 'Native':
+      return '100%';
+    case 'Fluent':
+      return '98%';
+    case 'Proficient':
+      return '95%';
+    default:
+      return '60%';
+  }
+};
+
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
@@ -58,11 +72,7 @@ const About: React.FC = () => {
                     <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                        style={{ 
-                          width: language.level === 'Native' ? '100%' : 
-                                 language.level === 'Fluent' ? '85%' : 
-                                 language.level === 'Proficient' ? '100%' :  
-                        }}
+                        style={{ width: getWidthByLevel(language.level) }}
                       ></div>
                     </div>
                   </div>
