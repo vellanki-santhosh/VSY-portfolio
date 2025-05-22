@@ -61,7 +61,7 @@ const About: React.FC = () => {
                         style={{ 
                           width: language.level === 'Native' ? '100%' : 
                                  language.level === 'Fluent' ? '85%' : 
-                                 language.level === 'Proficient' ? '100' :  
+                                 language.level === 'Proficient' ? '100%' :  
                         }}
                       ></div>
                     </div>
