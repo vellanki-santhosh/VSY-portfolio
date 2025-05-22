@@ -39,7 +39,7 @@ export const educationData: Education[] = [
     degree: 'Bachelor of Technology (B.Tech)',
     status: 'Present',
     timeline: '',
-    details: 'CGPA: 8.27',
+    details: 'CGPA: 8.64',
   },
   {
     institution: 'Sri Chaitanya Boys Junior College, Gollapudi',
